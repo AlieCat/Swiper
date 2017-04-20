@@ -27,7 +27,7 @@
         overflow: hidden;
 }
 
-.rss:before {
+/*.rss:before {
         content: "";
         background: -webkit-radial-gradient(center, ellipse cover, rgba(254,254,254,1) 0%, rgba(254,254,254,0) 50%, rgba(254,254,254,0) 100%);
         background: -moz-radial-gradient(center, ellipse cover, rgba(254,254,254,1) 0%, rgba(254,254,254,0) 50%, rgba(254,254,254,0) 100%);
@@ -44,7 +44,7 @@
         -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
         filter: alpha(opacity=70);
         opacity: 0.8;
-}
+}*/
 
 label {
         width: 200px;
@@ -94,7 +94,7 @@ label.attention:hover:before {
         content: "☢"; /* &#9762; */
         font-size: 22px
 }
-.checked ~ label.attention:hover:before  {
+.check[value*="1"] ~ label.attention:hover:before  {
         content: "on";
         font-size: 14px
 }
@@ -163,13 +163,13 @@ label:before {
         transition: all 200ms ease;
 }
 
-.checked ~ label:before {
+.check[value*="1"] ~ label:before {
         text-transform: uppercase;
         margin-right: 30px;
         margin-left: 0;
 }
 
-.checked ~ label{
+.check[value*="1"] ~ label{
         background: rgb(141,173,51);
         background: -webkit-radial-gradient(center, ellipse cover, rgba(141,173,51,1) 0%, rgba(146,178,55,1) 24%, rgba(157,187,64,1) 55%, rgba(166,194,78,1) 100%);
         background: -moz-radial-gradient(center, ellipse cover, rgba(141,173,51,1) 0%, rgba(146,178,55,1) 24%, rgba(157,187,64,1) 55%, rgba(166,194,78,1) 100%);
@@ -178,7 +178,7 @@ label:before {
         background: radial-gradient(center, ellipse cover, rgba(141,173,51,1) 0%, rgba(146,178,55,1) 24%, rgba(157,187,64,1) 55%, rgba(166,194,78,1) 100%);
 }
 
-.checked ~ label i {
+.check[value*="1"] ~ label i {
         right: -20px;
 }
 
@@ -210,19 +210,108 @@ input:hover {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
 <body>
+<div style="height:90vh;display:flex;flex-wrap: wrap;justify-content: center;align-items: flex-start;margin-bottom:60px;margin-top:60px;">
+<div style="width:15%;min-width:280px;display: flex; flex-wrap: wrap;align-items: center;justify-content: center;">
+<%for (var row in rows){%>
 <div class="rss">
   
-  <input type="range" id="echoID" class="check" />
+  <input type="range" id="<%= rows[row].id %>" class="check" value="<%= rows[row].io %>" />
   
-<label for="buttonThree" id="container">Swiper no swiping <!-- class="attention" -->
-    <i id="draggable" name="echoID"  class="draggable check buttonThree"></i>
+<label id="container"> <%= rows[row].name %> <!-- class="attention" -->
+    <i id="draggable" name="<%= rows[row].id %>"  class="draggable" value="<%= rows[row].io %>"></i>
   </label>
 
 </div>   
-  <ul id="messages"></ul>
+<%}%>
+</div>
+
+<div style="width:15%;min-width:280px;display: flex; flex-wrap: wrap;align-items: center;justify-content: center;">
+
+<%for (var row in rows2){%>
+<div class="rss">
+
+  <input type="range" id="<%= rows2[row].id %>" class="check" value="<%= rows2[row].io %>" />
+
+<label id="container"> <%= rows2[row].name %> <!-- class="attention" -->
+    <i id="draggable" name="<%= rows2[row].id %>"  class="draggable" value="<%= rows2[row].io %>"></i>
+  </label>
+
+</div>
+<%}%>
+
+</div>
+
+<div style="width:15%;min-width:280px;display: flex; flex-wrap: wrap;align-items: center;justify-content: center;">
+
+<%for (var row in rows3){%>
+<div class="rss">
+
+  <input type="range" id="<%= rows3[row].id %>" class="check" value="<%= rows3[row].io %>" />
+
+<label id="container"> <%= rows3[row].name %> <!-- class="attention" -->
+    <i id="draggable" name="<%= rows3[row].id %>"  class="draggable" value="<%= rows3[row].io %>"></i>
+  </label>
+
+</div>
+<%}%>
+
+</div>
+
+<div style="width:15%;min-width:280px;display: flex; flex-wrap: wrap;align-items: center;justify-content: center;">
+
+<%for (var row in rows4){%>
+<div class="rss">
+
+  <input type="range" id="<%= rows4[row].id %>" class="check" value="<%= rows4[row].io %>" />
+
+<label id="container"> <%= rows4[row].name %> <!-- class="attention" -->
+    <i id="draggable" name="<%= rows4[row].id %>"  class="draggable" value="<%= rows4[row].io %>"></i>
+  </label>
+
+</div>
+<%}%>
+
+</div>
+
+<div style="width:15%;min-width:280px;display: flex; flex-wrap: wrap;align-items: center;justify-content: center;">
+
+<%for (var row in rows5){%>
+<div class="rss">
+
+  <input type="range" id="<%= rows5[row].id %>" class="check" value="<%= rows5[row].io %>" />
+
+<label id="container"> <%= rows5[row].name %> <!-- class="attention" -->
+    <i id="draggable" name="<%= rows5[row].id %>"  class="draggable" value="<%= rows5[row].io %>"></i>
+  </label>
+
+</div>
+<%}%>
+
+</div>
+
+<div style="width:15%;min-width:280px;display: flex; flex-wrap: wrap;align-items: center;justify-content: center;">
+
+<%for (var row in rows6){%>
+<div class="rss">
+
+  <input type="range" id="<%= rows6[row].id %>" class="check" value="<%= rows6[row].io %>" />
+
+<label id="container"> <%= rows6[row].name %> <!-- class="attention" -->
+    <i id="draggable" name="<%= rows6[row].id %>"  class="draggable" value="<%= rows6[row].io %>"></i>
+  </label>
+
+</div>
+<%}%>
+
+</div>
+
+
+
+</div> 
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
 
 
     <script>
@@ -247,7 +336,7 @@ input:hover {
 		        var chkName = $(this).attr('id');
     			var checkVal = $(this).attr('value');
 			   if (checkVal == 1) {
-				      console.log('unchecking');
+				      console.log('unchecking'+chkName);
 				      $('.draggable[name='+chkName+']').animate({"left": "-20px"}, 300);
 				      $(this).attr('value','0');
 				      checkVal = 0;
@@ -257,31 +346,58 @@ input:hover {
 			      $(this).attr('value','1');
 				checkVal=1;
 			}
+			
+			$(this).toggleClass('checked');
 			socket.emit('dragged',chkName, checkVal );
-
+			
 	});
 
-    $(".draggable").draggable({ 
+
+
+
+	 $(".draggable").draggable({ 
         axis: 'x',
        stop: function(event, ui) {
 	var chkName = $(this).attr('name');
-        if(ui.position.left<90)
-        {   
+	
+        if( ui.position.left < 90)
+        {   	
+		console.log('unchecking'+chkName);
         	$('#'+chkName).removeClass("checked");
         	$(this).animate({"left": "-20px"}, 300);
 		$(this).attr('value','0'); //set i value
 		$('#'+chkName).attr('value','0');  //set input value
-        }
-        else if(ui.position.left>=90)
+		var checkVal = $('#'+chkName).attr('value');
+
+	}
+        else if(ui.position.left >= 90)
         {
            $('#'+chkName).addClass("checked");
            $(this).animate({"left": "180px"}, 300);
 	   $(this).attr('value','1'); //set i value
-	   $('#'+chkName).attr('value','1');  //set input value
-        }
-	var checkVal = $('#'+chkName).attr('value');
-    	socket.emit('dragged', chkName, checkVal);
-	return false;                                                 
+	   $('#'+chkName).attr('value','1');  //set input value       	
+		var checkVal = $('#'+chkName).attr('value');
+
+	 }
+
+				$.ajax({
+				url: "tests",//Do update on server-side,
+                        	type: "POST",
+                        	data: {id: chkName, io: checkVal},
+                        	success: function(data){
+					console.log('great succes, wow!');
+					console.log(chkName);
+					console.log(checkVal);
+				},
+                		error: function(){
+                              	// do action
+				console.log(chkName);
+				console.log(checkVal);
+				console.log( 'fail dragging');
+                        	}
+				});
+	
+    	socket.emit('dragged', chkName, checkVal);                                                
        }
 
     });
@@ -296,10 +412,11 @@ input:hover {
                                       $('#'+chkName).removeClass("checked");  
 				 }
                         else if(checkVal == 1) {
+				console.log('checking');
                               $('.draggable[name='+chkName+']').animate({"left": "180px"}, 300);
                        		$('#'+chkName).addClass("checked");
 				 }else{}
-          window.scrollTo(0, document.body.scrollHeight);
+         // window.scrollTo(0, document.body.scrollHeight);
         });
 
 
