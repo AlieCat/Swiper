@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <title>List View</title>
+  </head>
+  <body>
+	<script src="http://cdn.socket.io/socket.io-1.2.0.js"></script>
+	<script>
+	var socket=io();
+	socket.on('dragged',function(chkName,checkValue){
+
+	setTimeout(function(){
+	location.reload(true);
+	},5000);
+	});
+	</script>
+    <ul style="column-count:2;width:20%; list-style: none;" >
+	<%for (var row in rows) {%>
+		<li id="<%= rows[row].id %>">
+		<%= rows[row].name %>
+		<%if (rows[row].io ==1) {%>
+			&#x2713;
+			
+			<script>
+			document.getElementById("<%= rows[row].id %>").style.color = "#32CD32";
+			</script>
+		<%}%>
+		</li>
+	<%}%>
+    </ul>
+  </body>
+</html>

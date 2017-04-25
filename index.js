@@ -52,7 +52,9 @@ app.get('/', function(req, res){
 		else{rows2=rows2;
            		var query=connection.query("SELECT * FROM column1",function(err,rows, fields){
                 		if(err){console.log(error);}
-                		else{rows=rows;res.render('index', {rows:rows,rows2:rows2,rows3:rows3,rows4:rows4,rows5:rows5,rows6:rows6});}
+                		else{rows=rows;
+				res.render('index', {rows:rows,rows2:rows2,rows3:rows3,rows4:rows4,rows5:rows5,rows6:rows6});
+				}
             		});
 		}
 	   });
@@ -73,6 +75,22 @@ app.get('/', function(req, res){
 	});
 	
 });
+
+app.get('/new',function(req, res){
+ req.getConnection(function(err,connection){
+
+	var query=connection.query("(SELECT * FROM column1) UNION (SELECT * FROM column2) UNION (SELECT * FROM column3) UNION (SELECT * FROM column4) UNION (SELECT * FROM column5) UNION (SELECT * FROM column6)",function(err,rows, fields){
+        	if(err){console.log(error);}
+                else{rows=rows;
+                	res.render('new', {rows:rows});
+
+		}
+        });
+
+
+ });
+});
+
 
 app.post('/tests', function(req, res){	
 	
@@ -137,20 +155,6 @@ io.on('connection', function(socket){
   });
 
 });
-/*
-var connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  password : 'B0hBr0th3r$',
-  database : 'test'
-});
-
-connection.connect(); 
-connection.query('SELECT * FROM checkbox', function (error, results, fields) {
-  if (error) throw error;
-});
-connection.end();
-*/
 
 
 http.listen(port, function(){
